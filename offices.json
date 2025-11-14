@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Dr. Suresh Kumar",
+    "role": "HOD, CSE",
+    "department": "CSE",
+    "room": "B-205",
+    "block": "Block B",
+    "floor": "2nd Floor",
+    "directions_en": "From the main gate, go straight, take the right staircase, go to the 2nd floor, third room on the left.",
+    "directions_hi": "मुख्य गेट से सीधे जाएँ, दाईं ओर की सीढ़ियाँ लें, दूसरी मंज़िल पर जाएँ, बाईं तरफ तीसरा कमरा।",
+    "directions_kn": "ಮುಖ್ಯ ಗೇಟ್‌ನಿಂದ ನೇರವಾಗಿ ಹೋಗಿ, ಬಲ ಭಾಗದ ಮೆಟ್ಟಿಲುಗಳನ್ನು ಏರಿ, 2ನೇ ಮಹಡಿಗೆ ಹೋಗಿ, ಎಡ ಬದಿಯ ಮೂರನೇ ಕೊಠಡಿ.",
+    "directions_te": "ముఖ్య గేట్ నుంచి నేరుగా వెళ్లి, కుడిభాగం మెట్లపైకి ఎక్కి, 2వ అంతస్తుకు వెళ్లి, ఎడమవైపు మూడవ గది.",
+    "directions_ta": "முதன்மை நுழைவாயிலில் இருந்து நேராக சென்று, வலது பக்க படிக்கட்டில் ஏறி, 2வது மாடிக்கு சென்று, இடது பக்கத்தில் மூன்றாவது அறை."
+  },
+  {
+    "name": "Accounts Office",
+    "role": "Office",
+    "department": "Accounts",
+    "room": "A-102",
+    "block": "Block A",
+    "floor": "1st Floor",
+    "directions_en": "From the main entrance, turn left, go up one floor, and the first room on the right is the Accounts Office.",
+    "directions_hi": "मुख्य प्रवेश द्वार से बाएँ मुड़ें, एक मंज़िल ऊपर जाएँ, दाईं ओर पहला कमरा लेखा कार्यालय है।",
+    "directions_kn": "ಮುಖ್ಯ ಪ್ರವೇಶದಿಂದ ಎಡಕ್ಕೆ ತಿರುಗಿ, ಒಂದು ಮಹಡಿ ಮೇಲ್ಕೆ ಹೋಗಿ, ಬಲ ಬದಿಯ ಮೊದಲ ಕೋಣೆಯೇ ಲೆಕ್ಕಪತ್ರ ಕಚೇರಿ.",
+    "directions_te": "ప్రధాన ప్రవేశం నుండి ఎడమవైపు తిరిగి, ఒక అంతస్తు పైకి వెళ్లి, కుడివైపు ఉన్న మొదటి గది అకౌంట్స్ ఆఫీస్.",
+    "directions_ta": "முதன்மை நுழைவாயிலில் இருந்து இடது பக்கம் திரும்பி, ஒரு மாடி மேலே சென்று, வலது பக்கத்தில் முதல் அறை கணக்கு அலுவலகம்."
+  }
+]

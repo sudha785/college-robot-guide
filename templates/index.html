@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ ui.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function quickSearch(text) {
+            const input = document.getElementById("searchInput");
+            input.value = text;
+            document.getElementById("searchForm").submit();
+        }
+    </script>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- Robot header -->
+    <header class="robot-header">
+        <div class="robot-face">
+            <div class="eye left-eye"></div>
+            <div class="eye right-eye"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="robot-title">
+            <h1>{{ ui.welcome }}</h1>
+            <p>College Robot Guide</p>
+        </div>
+        <div class="lang-switcher">
+            {% for code, info in languages.items() %}
+                {% if code == lang %}
+                    <span class="lang-pill active">{{ info.label }}</span>
+                {% else %}
+                    <a href="{{ url_for('set_lang', lang_code=code) }}" class="lang-pill">
+                        {{ info.label }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main-layout">
+
+        <!-- Left: search + results -->
+        <section class="left-panel">
+
+            <div class="search-card">
+                <form id="searchForm" method="get" action="/" class="search-form">
+                    <input
+                        id="searchInput"
+                        type="text"
+                        name="q"
+                        autocomplete="off"
+                        placeholder="{{ ui.search_placeholder }}"
+                        value="{{ query }}"
+                    >
+                    <button type="submit">{{ ui.search_button }}</button>
+                </form>
+
+                <div class="quick-buttons">
+                    <button type="button" onclick="quickSearch('Admissions')">
+                        {{ ui.quick_admissions }}
+                    </button>
+                    <button type="button" onclick="quickSearch('Accounts')">
+                        {{ ui.quick_accounts }}
+                    </button>
+                    <button type="button" onclick="quickSearch('Principal')">
+                        {{ ui.quick_principal }}
+                    </button>
+                    <button type="button" onclick="quickSearch('Exam')">
+                        {{ ui.quick_exam_cell }}
+                    </button>
+                    <button type="button" onclick="quickSearch('CSE')">
+                        {{ ui.quick_cse }}
+                    </button>
+                    <button type="button" onclick="quickSearch('ECE')">
+                        {{ ui.quick_ece }}
+                    </button>
+                </div>
+
+                {% if query and results %}
+                    <p class="results-for">
+                        {{ ui.results_for }} <strong>{{ query }}</strong>
+                    </p>
+                {% elif query and not results %}
+                    <p class="no-results">{{ ui.no_results }}</p>
+                {% else %}
+                    <p class="hint">{{ ui.type_to_begin }}</p>
+                {% endif %}
+            </div>
+
+            <div class="results-list">
+                {% for o in results %}
+                    <article class="card">
+                        <div class="card-header">
+                            <h2>{{ o.name }}</h2>
+                            {% if o.role %}
+                                <span class="badge">{{ o.role }}</span>
+                            {% endif %}
+                        </div>
+                        <p class="card-meta">
+                            {% if o.department %}<span>{{ o.department }}</span>{% endif %}
+                            <span>{{ o.room }}</span>
+                            <span>{{ o.block }}</span>
+                            <span>{{ o.floor }}</span>
+                        </p>
+                        <p class="directions"><strong>Directions:</strong> {{ o.directions }}</p>
+
+                        <form method="post" action="{{ url_for('speak') }}">
+                            <input type="hidden" name="text" value="{{ o.directions }}">
+                            <input type="hidden" name="query" value="{{ query }}">
+                            <button type="submit" class="speak-btn">
+                                🔊 {{ ui.speak_button }}
+                            </button>
+                        </form>
+                    </article>
+                {% endfor %}
+            </div>
+
+        </section>
+
+        <!-- Right: campus map / info -->
+        <aside class="right-panel">
+            <div class="map-card">
+                <h3>Campus Map</h3>
+                <p class="map-caption">
+                    Use this map with the directions to reach your destination.
+                </p>
+                <div class="map-frame">
+                    <img src="{{ url_for('static', filename='campus_map.png') }}"
+                         alt="Campus map"
+                         class="map-image">
+                </div>
+                <p class="map-note">
+                    Tip: you can also show this map on your phone when walking.
+                </p>
+            </div>
+        </aside>
+
+    </main>
+
+</div>
+
+</body>
+</html>
